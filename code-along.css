@@ -7,6 +7,7 @@
   width: 20%;
   margin: auto;
   display: inline-block;
+  transform: translateX(150px) scale(2); /* this one */
 }
 
 /****************************************
@@ -17,12 +18,13 @@
   margin-bottom: .5em;
   width: 200px;
   height: 200px;
-  filter: grayscale(100%);
-
+  filter: grayscale(100%); /* this one */
+  transition: 5s; /* this one */
 }
 
 .transition-demo img:hover {
-
+  filter: none; /* this one */
+  transform: rotate(360deg) scale(2); /* this one */
 }
 
 /****************************************
@@ -35,11 +37,34 @@
   width: 500px;
   margin: auto;
   background-color: palegreen;
-
+  animation: luis-keyframe 10s; /* this one */
 }
 
-@keyframes sale-bar {
+@keyframes luis-keyframe {
   0% { background-color: lightgreen; width: 450px }
+  25% { background-color: purple; width: 350px;} /* this one */
+  50% { background-color: yellow; width: 200px;} /* this one */
   75% { background-color: #FF033E; width: 125x }
   100% { background-color: crimson; width: 10px }
+}
+
+section {
+  background: red;
+  height: 400px;
+  width: 400px;
+}
+
+.inner-div {
+  background: blue;  
+  height: 200px;
+  width: 200px;
+  animation: move-div 5s infinite;
+}
+
+@keyframes move-div {
+  0% { transform: translateX(0) translateY(0); background: purple; }
+  25% { transform: translateX(0) translateY(100%) rotate(360deg); border-radius: 100px; background: blue; }
+  50% { transform: translateX(100%) translateY(100%); background: yellow; }
+  75% { transform: translateX(100%) translateY(0); background: green; }
+  100% { transform: translateX(0) translateY(0); background: teal; }
 }
